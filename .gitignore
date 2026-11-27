@@ -1,0 +1,30 @@
+.vscode/
+__pycache__/
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE files
+.vscode/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Model files
+models/*.pkl
+
+# Private customer-level analysis
+outputs/customer_error_details.csv
+
+# Temporary files
+*.log
+*.tmp
+
+dataset/

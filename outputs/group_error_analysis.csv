@@ -1,0 +1,65 @@
+Group,Customers,Errors,Error Rate,Feature,Model
+Month-to-month,773,229,0.296248382923674,Contract,Logistic Regression
+One year,300,36,0.12,Contract,Logistic Regression
+Two year,336,9,0.026785714285714284,Contract,Logistic Regression
+DSL,484,81,0.16735537190082644,InternetService,Logistic Regression
+Fiber optic,613,168,0.2740619902120718,InternetService,Logistic Regression
+No,312,25,0.08012820512820513,InternetService,Logistic Regression
+Bank transfer (automatic),300,46,0.15333333333333332,PaymentMethod,Logistic Regression
+Credit card (automatic),309,39,0.1262135922330097,PaymentMethod,Logistic Regression
+Electronic check,474,130,0.2742616033755274,PaymentMethod,Logistic Regression
+Mailed check,326,59,0.18098159509202455,PaymentMethod,Logistic Regression
+0,1187,212,0.17860151642796968,SeniorCitizen,Logistic Regression
+1,222,62,0.27927927927927926,SeniorCitizen,Logistic Regression
+No,569,86,0.15114235500878734,PaperlessBilling,Logistic Regression
+Yes,840,188,0.22380952380952382,PaperlessBilling,Logistic Regression
+No,736,173,0.23505434782608695,Partner,Logistic Regression
+Yes,673,101,0.150074294205052,Partner,Logistic Regression
+Month-to-month,773,303,0.39197930142302717,Contract,Decision Tree
+One year,300,59,0.19666666666666666,Contract,Decision Tree
+Two year,336,20,0.05952380952380952,Contract,Decision Tree
+DSL,484,123,0.25413223140495866,InternetService,Decision Tree
+Fiber optic,613,218,0.3556280587275693,InternetService,Decision Tree
+No,312,41,0.13141025641025642,InternetService,Decision Tree
+Bank transfer (automatic),300,66,0.22,PaymentMethod,Decision Tree
+Credit card (automatic),309,62,0.20064724919093851,PaymentMethod,Decision Tree
+Electronic check,474,190,0.4008438818565401,PaymentMethod,Decision Tree
+Mailed check,326,64,0.19631901840490798,PaymentMethod,Decision Tree
+0,1187,307,0.2586352148272957,SeniorCitizen,Decision Tree
+1,222,75,0.33783783783783783,SeniorCitizen,Decision Tree
+No,569,111,0.19507908611599298,PaperlessBilling,Decision Tree
+Yes,840,271,0.32261904761904764,PaperlessBilling,Decision Tree
+No,736,240,0.32608695652173914,Partner,Decision Tree
+Yes,673,142,0.21099554234769688,Partner,Decision Tree
+Month-to-month,773,270,0.34928848641655885,Contract,Random Forest
+One year,300,37,0.12333333333333334,Contract,Random Forest
+Two year,336,9,0.026785714285714284,Contract,Random Forest
+DSL,484,89,0.18388429752066116,InternetService,Random Forest
+Fiber optic,613,199,0.32463295269168024,InternetService,Random Forest
+No,312,28,0.08974358974358974,InternetService,Random Forest
+Bank transfer (automatic),300,48,0.16,PaymentMethod,Random Forest
+Credit card (automatic),309,47,0.15210355987055016,PaymentMethod,Random Forest
+Electronic check,474,156,0.3291139240506329,PaymentMethod,Random Forest
+Mailed check,326,65,0.19938650306748465,PaymentMethod,Random Forest
+0,1187,239,0.2013479359730413,SeniorCitizen,Random Forest
+1,222,77,0.34684684684684686,SeniorCitizen,Random Forest
+No,569,90,0.15817223198594024,PaperlessBilling,Random Forest
+Yes,840,226,0.26904761904761904,PaperlessBilling,Random Forest
+No,736,202,0.27445652173913043,Partner,Random Forest
+Yes,673,114,0.16939078751857356,Partner,Random Forest
+Month-to-month,773,228,0.2949547218628719,Contract,Gradient Boosting
+One year,300,36,0.12,Contract,Gradient Boosting
+Two year,336,9,0.026785714285714284,Contract,Gradient Boosting
+DSL,484,81,0.16735537190082644,InternetService,Gradient Boosting
+Fiber optic,613,167,0.2724306688417618,InternetService,Gradient Boosting
+No,312,25,0.08012820512820513,InternetService,Gradient Boosting
+Bank transfer (automatic),300,44,0.14666666666666667,PaymentMethod,Gradient Boosting
+Credit card (automatic),309,42,0.13592233009708737,PaymentMethod,Gradient Boosting
+Electronic check,474,129,0.2721518987341772,PaymentMethod,Gradient Boosting
+Mailed check,326,58,0.17791411042944785,PaymentMethod,Gradient Boosting
+0,1187,203,0.17101937657961247,SeniorCitizen,Gradient Boosting
+1,222,70,0.3153153153153153,SeniorCitizen,Gradient Boosting
+No,569,81,0.14235500878734622,PaperlessBilling,Gradient Boosting
+Yes,840,192,0.22857142857142856,PaperlessBilling,Gradient Boosting
+No,736,174,0.23641304347826086,Partner,Gradient Boosting
+Yes,673,99,0.14710252600297177,Partner,Gradient Boosting

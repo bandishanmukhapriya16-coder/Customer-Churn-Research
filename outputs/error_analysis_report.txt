@@ -1,0 +1,20 @@
+CUSTOMER CHURN ERROR ANALYSIS
+=======================================================
+
+MODEL ERROR SUMMARY
+
+              Model  True Negatives  False Positives  False Negatives  True Positives  Total Errors  Error Rate  False Positive Rate  False Negative Rate
+Logistic Regression             926              109              165             209           274    0.194464             0.105314             0.441176
+      Decision Tree             838              197              185             189           382    0.271114             0.190338             0.494652
+      Random Forest             919              116              200             174           316    0.224273             0.112077             0.534759
+  Gradient Boosting             940               95              178             196           273    0.193754             0.091787             0.475936
+
+INTERPRETATION
+
+Lowest overall error rate: Gradient Boosting
+Error rate: 0.1938
+
+False positives are customers predicted to churn who actually did not churn.
+False negatives are customers predicted not to churn who actually churned.
+
+Group error rates are descriptive and do not establish that customer characteristics cause prediction errors.

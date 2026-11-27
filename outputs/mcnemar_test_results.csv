@@ -1,0 +1,7 @@
+Model A,Model B,A Correct B Wrong,A Wrong B Correct,Discordant Predictions,Raw P Value,Bonferroni Adjusted P Value,Significant at 0.05
+Logistic Regression,Decision Tree,203,95,298,3.69404085258523e-10,2.216424511551138e-09,True
+Logistic Regression,Random Forest,95,53,148,0.0006979143875100888,0.004187486325060533,True
+Logistic Regression,Gradient Boosting,48,49,97,1.0,1.0,False
+Decision Tree,Random Forest,91,157,248,3.3201535258019795e-05,0.00019920921154811875,True
+Decision Tree,Gradient Boosting,85,194,279,5.783953222295044e-11,3.4703719333770264e-10,True
+Random Forest,Gradient Boosting,42,85,127,0.00017009447829625235,0.001020566869777514,True

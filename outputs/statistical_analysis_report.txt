@@ -1,0 +1,47 @@
+CUSTOMER CHURN STATISTICAL ANALYSIS
+============================================================
+
+1. BOOTSTRAP CONFIDENCE INTERVALS
+------------------------------------------------------------              Model            Metric  Score  Lower 95% CI  Upper 95% CI
+Logistic Regression          Accuracy 0.8055        0.7871        0.8240
+Logistic Regression         Precision 0.6572        0.6116        0.7009
+Logistic Regression            Recall 0.5588        0.5080        0.6070
+Logistic Regression          F1 Score 0.6040        0.5586        0.6462
+Logistic Regression           ROC-AUC 0.8419        0.8218        0.8631
+Logistic Regression Average Precision 0.6334        0.5858        0.6852
+      Decision Tree          Accuracy 0.7289        0.7048        0.7509
+      Decision Tree         Precision 0.4896        0.4497        0.5289
+      Decision Tree            Recall 0.5053        0.4545        0.5588
+      Decision Tree          F1 Score 0.4974        0.4583        0.5379
+      Decision Tree           ROC-AUC 0.6573        0.6276        0.6835
+      Decision Tree Average Precision 0.3787        0.3526        0.4094
+      Random Forest          Accuracy 0.7757        0.7551        0.7942
+      Random Forest         Precision 0.6000        0.5491        0.6485
+      Random Forest            Recall 0.4652        0.4171        0.5134
+      Random Forest          F1 Score 0.5241        0.4757        0.5667
+      Random Forest           ROC-AUC 0.8186        0.7954        0.8414
+      Random Forest Average Precision 0.6075        0.5633        0.6555
+  Gradient Boosting          Accuracy 0.8062        0.7871        0.8240
+  Gradient Boosting         Precision 0.6735        0.6275        0.7216
+  Gradient Boosting            Recall 0.5241        0.4759        0.5749
+  Gradient Boosting          F1 Score 0.5895        0.5446        0.6324
+  Gradient Boosting           ROC-AUC 0.8434        0.8220        0.8640
+  Gradient Boosting Average Precision 0.6641        0.6208        0.7106
+
+2. PAIRWISE MCMEMAR TESTS
+------------------------------------------------------------            Model A           Model B  A Correct B Wrong  A Wrong B Correct  Discordant Predictions  Raw P Value  Bonferroni Adjusted P Value  Significant at 0.05
+Logistic Regression     Decision Tree                203                 95                     298      0.00000                      0.00000                 True
+Logistic Regression     Random Forest                 95                 53                     148      0.00070                      0.00419                 True
+Logistic Regression Gradient Boosting                 48                 49                      97      1.00000                      1.00000                False
+      Decision Tree     Random Forest                 91                157                     248      0.00003                      0.00020                 True
+      Decision Tree Gradient Boosting                 85                194                     279      0.00000                      0.00000                 True
+      Random Forest Gradient Boosting                 42                 85                     127      0.00017                      0.00102                 True
+
+3. INTERPRETATION
+------------------------------------------------------------
+Bootstrap intervals estimate uncertainty in the observed test-set metrics.
+McNemar's test compares paired classification errors between two models.
+Bonferroni-adjusted p-values account for the multiple pairwise comparisons.
+A p-value below 0.05 after correction indicates evidence of different error patterns under this test.
+Statistical significance does not necessarily mean the performance difference is practically important.
+These findings are conditional on this particular train-test split and should be validated on independent data.
