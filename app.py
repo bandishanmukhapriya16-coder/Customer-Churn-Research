@@ -130,10 +130,14 @@ def load_csv(filename):
 def load_model(filename):
     path = MODEL_DIR / filename
 
-    if path.exists():
+    if not path.exists():
+        return None
+
+    try:
         return joblib.load(path)
 
-    return None
+    except Exception:
+        return None
 
 
 df = load_data()
@@ -151,7 +155,7 @@ def display_image(filename, caption=None):
     path = OUTPUT_DIR / filename
 
     if path.exists():
-        st.image(str(path), caption=caption, use_container_width=True)
+        st.image(str(path), caption=caption, width='stretch')
     else:
         st.info(f"Visualization not available yet: {filename}")
 
@@ -168,7 +172,7 @@ def display_report(filename):
 
 def display_table(data, message="No results available yet."):
     if data is not None and not data.empty:
-        st.dataframe(data, use_container_width=True)
+        st.dataframe(data, width='stretch')
     else:
         st.info(message)
 
@@ -227,14 +231,23 @@ st.sidebar.info(
 # ============================================================
 # 6. CHECK DATASET
 # ============================================================
+# ============================================================
+# 6. CHECK DATASET ONLY FOR DATA-DEPENDENT PAGES
+# ============================================================
 
-if df is None:
-    st.error(
-        "Dataset not found. Check this path:\n\n"
-        "dataset/WA_Fn-UseC_-Telco-Customer-Churn.csv"
+DATASET_REQUIRED_PAGES = {
+    "🏠 Overview",
+    "🔍 Exploratory Analysis",
+}
+
+if df is None and page in DATASET_REQUIRED_PAGES:
+    st.warning("The original dataset is not available in this deployment.")
+    st.info(
+        "Overview and Exploratory Analysis require the original IBM "
+        "Telco Customer Churn CSV. The other research pages use saved "
+        "aggregate results, reports, and visualizations."
     )
     st.stop()
-
 
 # ============================================================
 # PAGE 1: OVERVIEW
@@ -295,7 +308,7 @@ if page == "🏠 Overview":
             }
         )
 
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     with right:
         st.subheader("Customer Contract Distribution")
@@ -316,10 +329,10 @@ if page == "🏠 Overview":
             text="Customers"
         )
 
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     st.subheader("Dataset Preview")
-    st.dataframe(df.head(10), use_container_width=True)
+    st.dataframe(df.head(10), width='stretch')
 
     st.subheader("Dataset Information")
 
@@ -359,7 +372,7 @@ elif page == "🔍 Exploratory Analysis":
             color_discrete_sequence=["#22c55e", "#f97316"]
         )
 
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     with right:
         st.subheader("Churn by Internet Service")
@@ -371,7 +384,7 @@ elif page == "🔍 Exploratory Analysis":
             barmode="group"
         )
 
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     left, right = st.columns(2)
 
@@ -386,7 +399,7 @@ elif page == "🔍 Exploratory Analysis":
             opacity=0.75
         )
 
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     with right:
         st.subheader("Tenure Distribution")
@@ -399,7 +412,7 @@ elif page == "🔍 Exploratory Analysis":
             opacity=0.75
         )
 
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     st.subheader("Correlation Analysis")
 
@@ -415,7 +428,7 @@ elif page == "🔍 Exploratory Analysis":
             aspect="auto"
         )
 
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     st.subheader("Additional EDA Visualizations")
 
@@ -475,7 +488,7 @@ elif page == "🤖 Model Comparison":
                 text_auto=".3f"
             )
 
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
 
         download_csv(
             results,
@@ -688,7 +701,7 @@ elif page == "🔄 Cross-Validation":
 
             st.plotly_chart(
                 fig,
-                use_container_width=True
+                width='stretch'
             )
 
     st.markdown("---")
@@ -778,7 +791,7 @@ elif page == "📈 Model Calibration":
 
             st.plotly_chart(
                 fig,
-                use_container_width=True
+                width='stretch'
             )
 
     st.markdown("---")
@@ -814,8 +827,15 @@ elif page == "👤 Customer Prediction":
 
     if model is None:
         st.error(
-            "Random Forest model not found. Run train.py first."
+            "The Random Forest model is unavailable or could not be loaded."
         )
+
+        st.info(
+            "For local use, run train.py to create "
+            "models/random_forest.pkl. Make sure the deployment uses "
+            "the same scikit-learn version used to train the model."
+        )
+
         st.stop()
 
     st.subheader("Customer Information")
@@ -942,7 +962,7 @@ elif page == "👤 Customer Prediction":
 
         submitted = st.form_submit_button(
             "🔮 Predict Churn",
-            use_container_width=True
+            width='stretch'
         )
 
     if submitted:
